@@ -33,42 +33,27 @@ const convertDataRequestToHTTP = (type, resource, params) => {
             break;
 
         case UPDATE:
-            const newText = getTextByHeading(params, resource);
-            let updateData = Object.assign({
-                    userId: localStorage.getItem('patientId'),
-                },
-                params.data);
-
-            updateData.text = newText;
-            url = `${domainName}/${apiPatientsUser}/${localStorage.getItem('patientId')}/${resource}/${params.id}`;
+            url = `${domainName}/${resource}/${params.id}`;
             options.method = "PUT";
-            if (!options.headers) {
-                options.headers = new Headers({ Accept: 'application/json' });
-            }
+            options.headers = new Headers({ Accept: 'application/json' });
             options.headers = {
-                Authorization: "Bearer " + token,
                 'Content-Type': 'application/json',
-                'X-Requested-With': "XMLHttpRequest",
             };
             options.body = JSON.stringify({
-                data: updateData
+                data: params.data
             });
             break;
 
         case CREATE:
-            let newData = Object.assign({ userId: localStorage.getItem('patientId') }, params.data);
-            url = `${domainName}/${apiPatientsUser}/${localStorage.getItem('patientId')}/${resource}`;
+            url = `${domainName}/${resource}/create`;
             options.method = "POST";
-            if (!options.headers) {
-                options.headers = new Headers({ Accept: 'application/json' });
-            }
+            options.headers = new Headers({ Accept: 'application/json' });
             options.headers = {
-                Authorization: "Bearer " + token,
                 'Content-Type': 'application/json',
-                'X-Requested-With': "XMLHttpRequest",
             };
+
             options.body = JSON.stringify({
-                data: newData
+                data: params.data
             });
             break;
 
@@ -110,9 +95,6 @@ const convertHTTPResponse = (response, type, resource, params) => {
             };
 
         case GET_ONE:
-
-            console.log('response', response)
-
             return {
                 data: response,
             };

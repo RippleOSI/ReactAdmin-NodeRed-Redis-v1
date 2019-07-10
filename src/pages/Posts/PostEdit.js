@@ -3,7 +3,7 @@ import { Edit, ReferenceInput, SimpleForm, SelectInput, TextInput } from 'react-
 import RichTextInput from 'ra-input-rich-text';
 
 const PostEdit = (props) => (
-    <Edit {...props}>
+    <Edit undoable={false} {...props}>
         <SimpleForm>
             <TextInput source="title" />
             <RichTextInput source="body" />
