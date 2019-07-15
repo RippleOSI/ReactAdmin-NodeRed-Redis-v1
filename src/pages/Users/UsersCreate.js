@@ -3,7 +3,7 @@ import { Create, SimpleForm, TextInput } from 'react-admin';
 
 const UserCreate = (props) => (
     <Create {...props}>
-        <SimpleForm>
+        <SimpleForm redirect="list">
             <TextInput source="name" />
             <TextInput source="email" />
             <TextInput source="phone" />

@@ -3,7 +3,7 @@ import { Edit, SimpleForm, TextInput } from 'react-admin';
 
 const UserCreate = (props) => (
     <Edit undoable={false} {...props}>
-        <SimpleForm>
+        <SimpleForm redirect="list">
             <TextInput source="name" />
             <TextInput source="email" />
             <TextInput source="phone" />

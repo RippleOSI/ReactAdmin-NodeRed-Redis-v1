@@ -1,5 +1,5 @@
 import React from "react";
-import { Show, RichTextField, SimpleShowLayout, TextField } from 'react-admin';
+import { Show, ReferenceField, RichTextField, SimpleShowLayout, TextField } from 'react-admin';
 
 const PostShow = props => (
     <Show {...props}>

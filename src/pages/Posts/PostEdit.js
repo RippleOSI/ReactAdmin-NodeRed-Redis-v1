@@ -4,7 +4,7 @@ import RichTextInput from 'ra-input-rich-text';
 
 const PostEdit = (props) => (
     <Edit undoable={false} {...props}>
-        <SimpleForm>
+        <SimpleForm redirect="list">
             <TextInput source="title" />
             <RichTextInput source="body" />
             <ReferenceInput label="Author" source="userId" reference="users">
