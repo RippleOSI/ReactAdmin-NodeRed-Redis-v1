@@ -16,19 +16,20 @@ https://marmelab.com/react-admin
 # Node-Red 
 
 Node-RED is a flow-based programming tool for wiring together hardware devices, APIs and online services in new and interesting ways.
-
-It based on two technologies: **NodeJS** and **Redis**. 
-
-**Node.js** is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code outside of a browser. More information about this technology is presented by this link: https://nodejs.org
-
-**Redis** is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams. More information about this technology is presented by this link: https://redis.io/ 
-                                                                             
+                                                                          
 It provides a browser-based editor that makes it easy to wire together flows using the wide range of nodes in the palette that can be deployed to its runtime in a single-click.
 
 It was developed by IBM’s Emerging Technology Services team and now a part of the JS Foundation.
 
 Tutorial for Node-Red is available by this link:
 https://nodered.org
+
+# Redis
+
+We are combining **NodeRed** and **Redis** as separate elements in this project.
+
+**Redis** is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams. More information about this technology is presented by this link: https://redis.io/ 
+  
 
 # Installation
 
