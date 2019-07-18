@@ -3,7 +3,7 @@ import React from "react";
 import { List, Datagrid, TextField, EmailField, UrlField, EditButton } from 'react-admin';
 
 const UserList = props => (
-    <List {...props}>
+    <List sort={{ field: 'id', order: 'ASC' }} {...props}>
         <Datagrid rowClick="show">
             <TextField source="id" />
             <TextField source="name" />
