@@ -8,9 +8,10 @@ const UsersShow = props => (
             <TextField source="name" />
             <TextField source="email" />
             <TextField source="phone" />
-            <TextField source="address.city" />
-            <TextField source="address.street" />
+            <TextField source="address.city" label="City" />
+            <TextField source="address.street" label="Street" />
             <UrlField source="website" />
+            <TextField source="company.name" label="Company" />
         </SimpleShowLayout>
     </Show>
 );

@@ -5,10 +5,9 @@ import {
     CREATE,
     UPDATE,
 } from "react-admin";
+import sort, { ASC, DESC } from 'sort-array-objects';
 
 import { token, domainName } from "./token";
-
-const apiPatientsUser = 'patient';
 
 /**
  * This constant prepare data for requests (URL and options)
@@ -76,6 +75,20 @@ function getTextByHeading(params, resource) {
 }
 
 /**
+ * This function sorts response array
+ *
+ * @author Bogdan Shcherban <bsc@piogroup.net>
+ * @param {array}  results
+ * @param {shape}  params
+ * @return {array}
+ */
+function getSortedResults(results, params) {
+    const sortField = get(params, 'sort.field', 'id');
+    const sortOrder = (get(params, 'sort.order', 'ASC') === 'DESC') ? DESC : ASC;
+    return sort(results, [sortField], sortOrder);
+}
+
+/**
  * This constant handle response data
  *
  * @author Bogdan Shcherban <bsc@piogroup.net>
@@ -89,9 +102,10 @@ const convertHTTPResponse = (response, type, resource, params) => {
 
         case GET_LIST:
             const results = get(response, 'results', []);
+            const resultsSorting = getSortedResults(results, params);
             return {
-                data: results,
-                total: results.length,
+                data: resultsSorting,
+                total: resultsSorting.length,
             };
 
         case GET_ONE:

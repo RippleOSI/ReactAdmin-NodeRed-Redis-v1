@@ -7,9 +7,10 @@ const UserCreate = (props) => (
             <TextInput source="name" />
             <TextInput source="email" />
             <TextInput source="phone" />
-            <TextInput source="address.city" />
-            <TextInput source="address.street" />
+            <TextInput source="address.city" label="City" />
+            <TextInput source="address.street" label="Street" />
             <TextInput source="website" />
+            <TextInput source="company.name" label="Company" />
         </SimpleForm>
     </Edit>
 );
