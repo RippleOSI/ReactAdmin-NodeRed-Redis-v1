@@ -4,8 +4,10 @@ import {
     GET_ONE,
     CREATE,
     UPDATE,
+    GET_MANY,
 } from "react-admin";
 import sort, { ASC, DESC } from 'sort-array-objects';
+import { stringify } from 'query-string';
 
 import { token, domainName } from "./token";
 
@@ -55,6 +57,15 @@ const convertDataRequestToHTTP = (type, resource, params) => {
                 data: params.data
             });
             break;
+
+
+        case GET_MANY: {
+            const query = {
+                filter: JSON.stringify({ id: params.ids }),
+            };
+            url = `${domainName}/${resource}?${stringify(query)}`;
+            break;
+        }
 
         default:
             throw new Error(`Unsupported fetch action type ${type}`);
@@ -129,6 +140,12 @@ const convertHTTPResponse = (response, type, resource, params) => {
             return {
                 data: dataFromRequest,
             };
+
+        case GET_MANY: {
+            return  {
+                data: [],
+            }
+        }
 
         default:
             return { data: 'No results' };
