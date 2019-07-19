@@ -1,8 +1,9 @@
 # General
 
-The main purpose of this project is demonstration of workability of application based on two technologies:
+The main purpose of this project is demonstration of workability of application based on three technologies:
 1) Client side on React-Admin framework;
 2) Server side on Node-Red tool.
+3) Database provided by Redis
 
 # React-Admin
 
