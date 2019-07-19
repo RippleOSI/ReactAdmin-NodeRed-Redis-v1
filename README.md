@@ -92,3 +92,10 @@ For this reason you should define domain name in the `public/index.html` file:
 ```
 
 After this you should import required flows to your local Node-Red. Flows are located inside your project in the **/flows** directory.
+
+
+## Screenshots
+
+![React Admin demo frontpage for Users ](/img/ReactAdminOnNR.PNG.png)
+
+![Node Red flows for Users ](/img/NR_flowsforRAdemo.png)
