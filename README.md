@@ -96,6 +96,6 @@ After this you should import required flows to your local Node-Red. Flows are lo
 
 ## Screenshots
 
-![React Admin demo frontpage for Users ](/img/ReactAdminOnNR.PNG.png)
+![React Admin demo frontpage for Users ](/img/ReactAdminOnNR.PNG)
 
-![Node Red flows for Users ](/img/NR_flowsforRAdemo.png)
+![Node Red flows for Users ](/img/NR_flowsforRAdemo.PNG)
