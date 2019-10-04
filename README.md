@@ -72,6 +72,9 @@ $ docker start my-nodered
 $ docker run -it -p 6379:6379 -d -v 'DIRECTORY_PATH'/redis.conf:/usr/local/etc/redis/redis.conf --name my-redis redis redis-server /usr/local/etc/redis/redis.conf
 ``` 
 
+NB be aware of related issue with the NodeRed Redis contrib module that means the version needs to be specific one thats working steadily
+[How to install node-red-contrib-redis v1.1.7 on the docker instance.pdf](https://github.com/RippleOSI/ReactAdmin-NodeRed-Redis-v1/files/3690339/How.to.install.node-red-contrib-redis.v1.1.7.on.the.docker.instance.pdf)
+
 Node-Red is available by this link: http://[localhost]:1880
 
 For this reason you should define domain name in the `public/index.html` file:
@@ -94,6 +97,33 @@ For this reason you should define domain name in the `public/index.html` file:
 
 After this you should import required flows to your local Node-Red. Flows are located inside your project in the **/flows** directory.
 
+Once you have imported flows on our local Node-Red, you should configure server settings for Redis node on the flow.
+see these guides here
+
+[How to configure redis nodes on node red admin panel](https://github.com/RippleOSI/ReactAdmin-NodeRed-Redis-v1/files/3690347/How.to.configure.redis.nodes.on.node.red.admin.panel.pdf)
+
+
+
+
+You can get IP address of my-redis docker.
+
+```
+$ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' my-redis
+```
+
+Once you obtain the IP address, double click on the redis node and edit Server settings.
+
+Fill the Host IP address as docker IP address.
+
+Some tips to access local dev server from external source.
+
+You have to add firewall rule to allow 3000 port
+
+```
+$ ufw allow 3000/tcp
+```
+
+You will then need to trigger set up of Users and Posts via a POST trigger, either via Postman (consider firewall port issues), Curl (easier if doing this on local dev machine) or an inject trigger on NodeRed
 
 ## Screenshots
 
